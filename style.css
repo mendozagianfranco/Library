@@ -35,6 +35,7 @@ button {
     font-family: inherit;
     cursor: pointer;
     border: none;
+    font-size: 100%;
 }
 
 input[type='text'],
@@ -43,7 +44,9 @@ input[type='number'] {
     font-family: inherit;
     font-size: 100%;
 }
+
 /*  Button Add Book */
+
 .btn-add-book {
     text-align: center;
     margin: 30px 0;
@@ -75,7 +78,7 @@ input[type='number'] {
 
 .modal {
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
@@ -141,7 +144,57 @@ input[type='number'] {
     padding: 15px 30px;
     background: #4681f4;
     color: #fff;
-    font-size: 100%;
     border-radius: 10px;
     width: 200px;
+    transition: all 0.4s ease;
+}
+
+.btn-submit button:hover {
+    background: #3976f1;
+}
+
+/* Card */
+
+.container__card {
+    padding: 50px 10%;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    min-width: 280px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.card button {
+    font-size: 1.2rem;
+    border-radius: 10px;
+    padding: 10px 30px;
+    transition: all 0.4s ease;
+}
+.card .read {
+    background-color: #52d656;
+}
+.card .no-read {
+    background: #f44336;
+}
+
+.card .btn-remove:hover {
+    background-color: #d2d2d2;
+}
+
+.card .read:hover {
+    background-color: #4bc34f;
+}
+
+.card .no-read:hover {
+    background: #e63d31;
 }
