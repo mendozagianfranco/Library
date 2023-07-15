@@ -5,8 +5,50 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Library</title>
         <link rel="stylesheet" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body>
+        <header>
+            <h1>Library</h1>
+        </header>
+        <main>
+            <div class="container__card"></div>
+            <div class="btn-add-book">
+                <button type="button">NEW BOOK</button>
+            </div>
+            <div class="modal">
+                <div class="modal__content">
+                    <h2 class="modal__title">Add New Book</h2>
+                    <span class="modal__close">&times;</span>
+                    <form>
+                        <div class="input-box title-book">
+                            <label for="title">Title</label>
+                            <input required type="text" id="title" />
+                        </div>
+                        <div class="input-box author-book">
+                            <label for="author">Author</label>
+                            <input required type="text" id="author" />
+                        </div>
+                        <div class="input-box pages-book">
+                            <label for="pages">Pages</label>
+                            <input required type="number" min="0" id="pages" />
+                        </div>
+                        <div class="input-box read-book">
+                            <label for="read">Have you read it?</label>
+                            <input type="checkbox" id="read" />
+                        </div>
+                        <div class="btn-submit">
+                            <button>Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
         <script src="./script.js"></script>
     </body>
 </html>
