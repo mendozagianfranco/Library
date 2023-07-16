@@ -38,13 +38,39 @@ function showLibraryOnDisplay() {
     let card = document.createElement('div')
     card.setAttribute('class', 'card')
 
-    for (let book of myLibrary) {
-        card.innerHTML = `<h2>${book.title}</h2>
-        <h3>${book.author}</h3>
-        <p>Pages: ${book.pages}</p>
-        <button class="btn__card ${book.read ? `read` : `no-read`}">${book.read ? `Read` : `Not read`}</button>
+    for (let i = 0; i < myLibrary.length; i++) {
+        updateAttributeCard()
+        card.innerHTML = `<h2>${myLibrary[i].title}</h2>
+        <h3>${myLibrary[i].author}</h3>
+        <p>Pages: ${myLibrary[i].pages}</p>
+        <button class="btn__card ${myLibrary[i].read ? `read` : `no-read`}">${myLibrary[i].read ? `Read` : `Not read`}</button>
         <button class="btn-remove">Remove</button>`
         containerBook.appendChild(card)
+    }
+
+    let btnRemoveCard = document.querySelectorAll('.btn-remove');
+    btnRemoveCard.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            let cardNumber = card.getAttribute('data-index')
+            myLibrary.splice(cardNumber, 1)
+            containerBook.removeChild(card)
+            updateAttributeCard()
+            e.stopImmediatePropagation()
+        })
+    })
+
+    let btnReadBook = document.querySelectorAll('.btn__card')
+    btnReadBook.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            e.stopImmediatePropagation()
+        })
+    })
+}
+
+function updateAttributeCard() {
+    let cards = document.querySelectorAll('.card')
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].setAttribute('data-index', i)
     }
 }
 
