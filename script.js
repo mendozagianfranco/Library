@@ -39,13 +39,13 @@ function showLibraryOnDisplay() {
     card.setAttribute('class', 'card')
 
     for (let i = 0; i < myLibrary.length; i++) {
-        updateAttributeCard()
         card.innerHTML = `<h2>${myLibrary[i].title}</h2>
         <h3>${myLibrary[i].author}</h3>
         <p>Pages: ${myLibrary[i].pages}</p>
         <button class="btn__card ${myLibrary[i].read ? `read` : `no-read`}">${myLibrary[i].read ? `Read` : `Not read`}</button>
         <button class="btn-remove">Remove</button>`
         containerBook.appendChild(card)
+        updateAttributeCard()
     }
 
     let btnRemoveCard = document.querySelectorAll('.btn-remove');
@@ -62,9 +62,29 @@ function showLibraryOnDisplay() {
     let btnReadBook = document.querySelectorAll('.btn__card')
     btnReadBook.forEach((btn) => {
         btn.addEventListener('click', (e) => {
+            let element = e.target.parentElement.getAttribute('data-index');
+            if (e.target.classList.contains('no-read')) {
+                e.target.classList.remove('no-read')
+                e.target.classList.add('read')
+                changeReadstatus(element)
+                e.target.textContent = 'Read'
+            } else {
+                e.target.classList.remove('read')
+                e.target.classList.add('no-read')
+                changeReadstatus(element)
+                e.target.textContent = 'Not read'
+            }
             e.stopImmediatePropagation()
         })
     })
+}
+
+function changeReadstatus(element) {
+    if (myLibrary[element].read) {
+        myLibrary[element].read = false;
+    } else {
+        myLibrary[element].read = true;
+    }
 }
 
 function updateAttributeCard() {
