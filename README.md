@@ -22,7 +22,7 @@ Il layout si **adatta automaticamente a diverse larghezze di schermo** grazie al
 ## Come visualizzare il progetto  
 1. Clona la repository:  
 ```bash
-   git clone https://github.com/mendozagianfranco/Library.git
+git clone https://github.com/mendozagianfranco/Library.git
 ```
 2. Entra nella cartella del progetto:
 ```bash
